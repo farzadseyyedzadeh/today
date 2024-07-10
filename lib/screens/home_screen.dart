@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:today/constants/colors.dart';
 import 'package:today/data/database.dart';
 import 'package:today/widgets/todo_dialog.dart';
 import 'package:today/widgets/todo_tile.dart';
@@ -64,17 +65,18 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey.shade200,
+      backgroundColor: CColors().cLight,
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey.shade700,
+        backgroundColor: CColors().cDark,
+        foregroundColor: CColors().cLight,
         title: const Text('TODAY'),
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.blueGrey.shade700,
-        foregroundColor: Colors.white,
+        backgroundColor: CColors().cDarkGreyGreen,
+        foregroundColor: CColors().cLight,
         onPressed: createNewTask,
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       body: db.toDoList.isEmpty
           ? Center(child: Image.asset('assets/images/no-task.png'))

@@ -7,7 +7,7 @@ class Today extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      debugShowMaterialGrid: false,
+      debugShowCheckedModeBanner: false,
       home: HomeScreen(),
     );
   }

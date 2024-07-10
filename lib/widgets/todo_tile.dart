@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:today/constants/colors.dart';
 
 class TodoTile extends StatelessWidget {
   const TodoTile(
@@ -30,7 +31,7 @@ class TodoTile extends StatelessWidget {
         ]),
         child: Container(
           decoration: BoxDecoration(
-              color: Colors.blueGrey.shade700,
+              color: CColors().cGrey,
               borderRadius:
                   const BorderRadius.only(topLeft: Radius.circular(25.0))),
           padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 10.0),
@@ -42,6 +43,7 @@ class TodoTile extends StatelessWidget {
             title: Text(
               todoTitle,
               style: TextStyle(
+                  color: CColors().cLight,
                   decoration: isDone
                       ? TextDecoration.lineThrough
                       : TextDecoration.none),

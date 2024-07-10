@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:today/constants/colors.dart';
 import 'package:today/widgets/todo_button.dart';
 
 class TodoDialog extends StatelessWidget {
-  final controller;
+  final TextEditingController controller;
   VoidCallback onSave;
   VoidCallback onCancel;
   TodoDialog(
@@ -14,20 +15,24 @@ class TodoDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      backgroundColor: CColors().cLight,
       content: Container(
-        height: 150.0,
+        height: 180.0,
+        width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             TextField(
               controller: controller,
               decoration: InputDecoration(
+                  errorText: controller.text.isEmpty ? 'no task added' : '',
                   hintText: 'Add a new task',
+                  hintStyle: TextStyle(color: CColors().cGreen),
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5.0))),
+                      borderRadius: BorderRadius.circular(10.0))),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TodoButton(text: 'Save', onPressed: onSave),
                 const SizedBox(

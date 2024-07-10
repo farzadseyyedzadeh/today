@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:today/constants/colors.dart';
 
 class TodoButton extends StatelessWidget {
   TodoButton({super.key, required this.text, required this.onPressed});
@@ -8,10 +9,15 @@ class TodoButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      fillColor: Colors.blueGrey.shade600,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+      fillColor: CColors().cDark,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+          side: BorderSide(color: CColors().cGreen, strokeAlign: 5.0)),
       onPressed: onPressed,
-      child: Text(text),
+      child: Text(
+        text,
+        style: TextStyle(color: CColors().cLight),
+      ),
     );
   }
 }
